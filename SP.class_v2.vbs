@@ -1,10 +1,14 @@
+'Description
+
+'oSP.SharePoint(YOUR_SITE_URL,YOUR_CLIENT_ID,YOUR_CLIENT_SECRET,boolRaiseError)
+
+'Example 
 Option Explicit
 
 Dim retval
 Dim oSP : Set oSP = New SharePoint
-retval = oSP.SharePoint("https://volvogroup.sharepoint.com/sites/unit-rc-sk-bs-it","40784cc3-ba68-45d0-9891-f3dfa8f04d15","cDES2gLLi%2BBRI/FcUizAyZuGQFQ5p%2B6rrknc3kMBWmE=",True)
-oSP.UpdateSingleListItemJ "WDAPP","$select=Title&$filter=(Title eq 'SK01_IBANcheckVAT')","{""ComputerName"":""Test""}"
-
+retval = oSP.SharePoint("https://volvogroup.sharepoint.com/sites/unit-rc-sk-bs-it","XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX","cDES2gLLi%2BBRI/FcUizAyZuGQFQ5p%2B6rrknc3kMBWmE=",True)
+'Example
 
 
 Class SharePoint
@@ -33,7 +37,7 @@ Class SharePoint
 	Private boolRaise
 
 	
-		Private Sub Class_Initialize
+	Private Sub Class_Initialize
 		errDescription = ""
 		errNumber = 0
 		numHTTPstatus = 0
