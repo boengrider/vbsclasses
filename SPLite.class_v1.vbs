@@ -1,18 +1,23 @@
+'Description
+'A class to access sharepoint. Obtain security token and xdigest value
+'oSP.SharePointLite(YOUR_SITE_URL,YOUR_CLIENT_ID,YOUR_CLIENT_SECRET,boolRaiseError)
+
+'Example
 Option Explicit
 
-Dim retval,token
+Dim retval,token,xdigest
 Dim oSPL : Set oSPL = New SharePointLite
-retval = oSPL.SharePointLite("https://volvogroup.sharepoint.com/sites/unit-rc-sk-bs-it","40784cc3-ba68-45d0-9891-f3dfa8f04d15","cDES2gLLi%2BBRI/FcUizAyZuGQFQ5p%2B6rrknc3kMBWmE=",False)
+retval = oSPL.SharePointLite("https://volvogroup.sharepoint.com/sites/unit-rc-sk-bs-it","XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX","cDES2gLLi%2BBRI/FcUizAyZuGQFQ5p%2B6rrknc3kMBWmE=",False)
 
 If retval <> 0 Then
 	debug.WriteLine oSPL.LastErrorNumber
 	debug.WriteLine oSPL.LastErrorSource
 	debug.WriteLine oSPL.LastErrorDesc
 Else ' Initialization OK
-	token oSPL.AccessToken
+	token = oSPL.AccessToken
+	xdigest = oSPL.XDigest
 End If 
-
-'Your code goes here
+'Example
 
 
 
@@ -270,6 +275,10 @@ Class SharePointLite
 	
 	Public Property Get AccessToken
 		AccessToken = strSecurityToken
+	End Property 
+	
+	Public Property Get XDigest
+		XDigest = strFormDigestValue
 	End Property 
 	
 	Public Property Get LastErrorNumber
