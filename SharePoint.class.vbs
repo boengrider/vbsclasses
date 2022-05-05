@@ -7,7 +7,7 @@ Option Explicit
 
 Dim retval
 Dim oSP : Set oSP = New SharePoint
-retval = oSP.SharePoint("https://volvogroup.sharepoint.com/sites/unit-rc-sk-bs-it","XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX","cDES2gLLi%2BBRI/FcUizAyZuGQFQ5p%2B6rrknc3kMBWmE=",True)
+retval = oSP.SharePoint("https://volvogroup.sharepoint.com/sites/unit-rc-sk-bs-it","Registered App(ClientID)","ClientSecret",True)
 'Example
 
 
