@@ -1,24 +1,24 @@
-Option Explicit
+'Option Explicit
 
-Dim owsh : Set owsh = CreateObject("wscript.shell")
-Dim oSAP : Set oSAP = New SAPLauncherV2
-Dim oConnFQ2,oSessFQ2
-Dim oConnFQ2a,oSessFQ2a
+'Dim owsh : Set owsh = CreateObject("wscript.shell")
+'Dim oSAP : Set oSAP = New SAPLauncherV2
+'Dim oConnFQ2,oSessFQ2
+'Dim oConnFQ2a,oSessFQ2a
 '***********************
 'Create connection block
 '***********************
-On Error Resume Next
-	err.Clear
-	oSAP.CreateConnectionSession "FQ2 - SAP_VGMF ERP TEST [1010]", oConnFQ2, oSessFQ2
-	If err.number <> 0 Then
-		'Send admin message here
-		debug.WriteLine "Error number: " & err.number & ". Error description: " & err.Description
-	End If 
-On Error GoTo 0 
-
-WScript.Sleep 5000
-
-WScript.Quit(1)
+'On Error Resume Next
+'	err.Clear
+'	oSAP.CreateConnectionSession "FQ2 - SAP_VGMF ERP TEST [1010]", oConnFQ2, oSessFQ2
+'	If err.number <> 0 Then
+'		'Send admin message here
+'		debug.WriteLine "Error number: " & err.number & ". Error description: " & err.Description
+'	End If 
+'On Error GoTo 0 
+'
+'WScript.Sleep 5000
+'
+'WScript.Quit(1)
 
 
 
