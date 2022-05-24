@@ -1,19 +1,19 @@
-Option Explicit
-Dim ss,sl
-Dim wsh : Set wsh = CreateObject("Wscript.Shell")
-Set sl = New SAPLauncher
-sl.SetClientName = WScript.Arguments.Item(1)
-sl.SetSystemName = WScript.Arguments.Item(0)
-sl.SetLocalXML = wsh.ExpandEnvironmentStrings("%APPDATA%") & "\SAP\Common\SAPUILandscape.xml"
-sl.CheckSAPLogon
-sl.FindSAPSession
-If Not sl.SessionFound Then 
-	debug.WriteLine "Session not found"
-	WScript.Quit(1)
+'Option Explicit
+'Dim ss,sl
+'Dim wsh : Set wsh = CreateObject("Wscript.Shell")
+'Set sl = New SAPLauncher
+'sl.SetClientName = WScript.Arguments.Item(1)
+'sl.SetSystemName = WScript.Arguments.Item(0)
+'sl.SetLocalXML = wsh.ExpandEnvironmentStrings("%APPDATA%") & "\SAP\Common\SAPUILandscape.xml"
+'sl.CheckSAPLogon
+'sl.FindSAPSession
+'If Not sl.SessionFound Then 
+'	debug.WriteLine "Session not found"
+'	WScript.Quit(1)
 '	SEND message
 '	LOG
-End If 
-Set ss = sl.GetSession
+'End If 
+'Set ss = sl.GetSession
 
 
 Class SAPLauncher
@@ -225,25 +225,6 @@ Class SAPLauncher
 	Private Sub FindSAPSystemDescription
 	
 		Dim n_ChildNodes,n_ChildNode,uuid,i,j
-		'oHTTP.open "GET",strGlobalURL,False
-		'oHTTP.send
-		
-		'If oHTTP.status <> 200 Then
-		'	strSSD = Null
-		'	Exit Sub 
-		'End If 
-		
-		'oXML.load(oHTTP.responseXML)
-	
-		'Set n_ChildNodes = oXML.getElementsByTagName("Messageserver")
-	
-		'For Each n_ChildNode In n_ChildNodes
-		'	If LCase(n_ChildNode.attributes.getNamedItem("name").text) = LCase(strSSN) Then
-		'		uuid = n_ChildNode.attributes.getNamedItem("uuid").text ' We found the uuid of the target system
-		'		Exit For
-		'	End If 
-		
-		'Next
 	
 		oXML.load(strLocalLandscapePATH) ' Locally stored XML
 
@@ -262,10 +243,6 @@ Class SAPLauncher
 							debug.WriteLine "SAP system description: " & strSSD
 							CheckSAPLogon
 							Exit Sub  
-						'If j.attributes.getNamedItem("msid").text = uuid Then ' We have a match
-						'	strSSD = j.attributes.getNamedItem("name").text
-						'	CheckSAPLogon                                                                                                                                                                                                            
-						'	Exit Sub ' No need to continue
 						End If
 					Next
 				End If 
