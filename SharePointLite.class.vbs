@@ -7,7 +7,7 @@ Option Explicit
 
 Dim retval,token,xdigest
 Dim oSPL : Set oSPL = New SharePointLite
-retval = oSPL.SharePointLite("https://volvogroup.sharepoint.com/sites/unit-rc-sk-bs-it","XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX","Registered App(ClientID)","ClientSecret",False)
+retval = oSPL.SharePointLite("Site url","XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX","Registered App(ClientID)","ClientSecret",False)
 
 If retval <> 0 Then
 	debug.WriteLine oSPL.LastErrorNumber
