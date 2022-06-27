@@ -265,7 +265,7 @@ Class SharePointLite
 			errDescription = oHTTP.responseText
 			GetXDigestValue = oHTTP.status
 			Exit Function 
-		End If 
+		End If
 		
 		oXML.loadXML oHTTP.responseText
 		
