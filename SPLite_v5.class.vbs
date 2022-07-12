@@ -131,8 +131,7 @@ Class SharePointLite
 	End Function
 	
 	Function UploadSingleFile(sSiteUrl,sLibraryName,sFilePath,bOverwrite,sJsonMetadata)
-	'						  ^^^^^^^^ ^^^^^^^^^^^^ ^^^^^^^^^ ^^^^^^^^^^ 
-	'						  Site      Library      File      Overwrite 
+		
 		Dim tmp,file,buffer
 		oRX.Pattern = "\/sites\/.+\/"
 		
